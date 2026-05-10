@@ -657,6 +657,9 @@
       </div>
     </div>
 
+    <audio id="birthday-song" loop>
+    <source src="music/birthday.mp3" type="audio/mp3">
+    </audio>
     <!-- Enhanced Wish Message Popup -->
     <div class="wish-message" id="wishMessage" bis_skin_checked="1">
       <h2>✨ Happy Birthday! ✨</h2>
@@ -671,6 +674,44 @@
     </div>
 
     <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+    const audio = document.getElementById("birthday-song");
+
+    // restore status musik
+    const wasPlaying = localStorage.getItem("musicPlaying");
+
+    // klik pertama user
+    document.addEventListener("click", () => {
+
+        audio.play()
+            .then(() => {
+                localStorage.setItem("musicPlaying", "true");
+                console.log("music playing");
+            })
+            .catch(err => {
+                console.log("play failed", err);
+            });
+
+    }, { once: true });
+
+    // autoplay saat pindah halaman
+    if (wasPlaying === "true") {
+
+        setTimeout(() => {
+            audio.play()
+                .then(() => {
+                    console.log("autoplay resumed");
+                })
+                .catch(err => {
+                    console.log("resume failed", err);
+                });
+        }, 300);
+
+    }
+
+});
       // Global variables
       let candlesBlown = 0;
       const totalCandles = 5;
