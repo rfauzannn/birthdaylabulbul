@@ -2448,59 +2448,57 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-          const audio =
-              document.getElementById("birthday-song");
+    const audio =
+        document.getElementById("birthday-song");
 
-          // cek apakah musik sebelumnya aktif
-          const wasPlaying =
-              localStorage.getItem("musicPlaying");
+    // cek status musik
+    const musicEnabled =
+        localStorage.getItem("musicPlaying");
 
-          // resume musik saat user klik halaman
-          if (wasPlaying === "true") {
+    // jika musik sebelumnya aktif
+    if (musicEnabled === "true") {
 
-              const startMusic = () => {
+        audio.play()
+            .then(() => {
+                console.log("music resumed");
+            })
+            .catch(() => {
 
-                  audio.play()
-                      .then(() => {
-                          console.log("music resumed");
-                      })
-                      .catch(err => {
-                          console.log(err);
-                      });
+                // browser block autoplay
+                // tunggu klik kecil user
 
-                  document.removeEventListener(
-                      "click",
-                      startMusic
-                  );
-              };
+                const resume = () => {
 
-              document.addEventListener(
-                  "click",
-                  startMusic
-              );
-          }
+                    audio.play();
 
-          // halaman pertama kali play
-          document.addEventListener("click", () => {
+                    document.removeEventListener(
+                        "click",
+                        resume
+                    );
+                };
 
-              audio.play()
-                  .then(() => {
+                document.addEventListener(
+                    "click",
+                    resume
+                );
+            });
+    }
 
-                      localStorage.setItem(
-                          "musicPlaying",
-                          "true"
-                      );
+    // simpan status saat user pertama klik halaman
+    document.addEventListener("click", () => {
 
-                  })
-                  .catch(err => {
-                      console.log(err);
-                  });
+        localStorage.setItem(
+            "musicPlaying",
+            "true"
+        );
 
-          }, { once: true });
+        audio.play();
 
-      });
+    }, { once: true });
+
+});
       // Register ScrollTrigger plugin
       gsap.registerPlugin(ScrollTrigger);
 
