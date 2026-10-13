@@ -1,17 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Magical Birthday Cake</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>"
+    />
     <style>
       /* Global Styles */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial,
-          sans-serif;
+        font-family:
+          "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
       }
 
       body {
@@ -169,7 +173,9 @@
           #ff6600
         );
         border-radius: 50% 50% 20% 20%;
-        box-shadow: 0 0 10px #ff9900, 0 0 20px #ffff00;
+        box-shadow:
+          0 0 10px #ff9900,
+          0 0 20px #ffff00;
         opacity: 1;
         animation: flicker 0.5s infinite alternate;
         z-index: 20;
@@ -262,8 +268,10 @@
         background: rgba(255, 255, 255, 0.95);
         padding: 25px;
         border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.8),
-          0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 51, 102, 0.4);
+        box-shadow:
+          0 10px 30px rgba(255, 105, 180, 0.8),
+          0 0 20px rgba(255, 255, 255, 0.8),
+          0 0 40px rgba(255, 51, 102, 0.4);
         text-align: center;
         z-index: 100;
         opacity: 0;
@@ -327,15 +335,19 @@
         0% {
           transform: scale(0);
           opacity: 1;
-          box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.9),
-            0 0 0 0px rgba(255, 0, 102, 0.9), 0 0 0 0px rgba(255, 255, 0, 0.9),
+          box-shadow:
+            0 0 0 0px rgba(255, 255, 255, 0.9),
+            0 0 0 0px rgba(255, 0, 102, 0.9),
+            0 0 0 0px rgba(255, 255, 0, 0.9),
             0 0 0 0px rgba(51, 204, 255, 0.9);
         }
         100% {
           transform: scale(1);
           opacity: 0;
-          box-shadow: 0 0 0 50px rgba(255, 255, 255, 0),
-            0 0 0 100px rgba(255, 0, 102, 0), 0 0 0 150px rgba(255, 255, 0, 0),
+          box-shadow:
+            0 0 0 50px rgba(255, 255, 255, 0),
+            0 0 0 100px rgba(255, 0, 102, 0),
+            0 0 0 150px rgba(255, 255, 0, 0),
             0 0 0 200px rgba(51, 204, 255, 0);
         }
       }
@@ -521,9 +533,10 @@
         font-display: swap;
         src: url("chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/AtlassianSans-latin.woff2")
           format("woff2");
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
-          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
       }
     </style>
   </head>
@@ -658,7 +671,7 @@
     </div>
 
     <audio id="birthday-song" loop>
-    <source src="music/birthday.mp3" type="audio/mp3">
+      <source src="music/birthday.mp3" type="audio/mp3" />
     </audio>
     <!-- Enhanced Wish Message Popup -->
     <div class="wish-message" id="wishMessage" bis_skin_checked="1">
@@ -674,44 +687,43 @@
     </div>
 
     <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const audio = document.getElementById("birthday-song");
 
-    document.addEventListener("DOMContentLoaded", () => {
+        // restore status musik
+        const wasPlaying = localStorage.getItem("musicPlaying");
 
-    const audio = document.getElementById("birthday-song");
-
-    // restore status musik
-    const wasPlaying = localStorage.getItem("musicPlaying");
-
-    // klik pertama user
-    document.addEventListener("click", () => {
-
-        audio.play()
-            .then(() => {
+        // klik pertama user
+        document.addEventListener(
+          "click",
+          () => {
+            audio
+              .play()
+              .then(() => {
                 localStorage.setItem("musicPlaying", "true");
                 console.log("music playing");
-            })
-            .catch(err => {
+              })
+              .catch((err) => {
                 console.log("play failed", err);
-            });
+              });
+          },
+          { once: true },
+        );
 
-    }, { once: true });
-
-    // autoplay saat pindah halaman
-    if (wasPlaying === "true") {
-
-        setTimeout(() => {
-            audio.play()
-                .then(() => {
-                    console.log("autoplay resumed");
-                })
-                .catch(err => {
-                    console.log("resume failed", err);
-                });
-        }, 300);
-
-    }
-
-});
+        // autoplay saat pindah halaman
+        if (wasPlaying === "true") {
+          setTimeout(() => {
+            audio
+              .play()
+              .then(() => {
+                console.log("autoplay resumed");
+              })
+              .catch((err) => {
+                console.log("resume failed", err);
+              });
+          }, 300);
+        }
+      });
       // Global variables
       let candlesBlown = 0;
       const totalCandles = 5;
@@ -741,7 +753,7 @@
           const touch = e.touches[0];
           const element = document.elementFromPoint(
             touch.clientX,
-            touch.clientY
+            touch.clientY,
           );
           if (
             element &&
@@ -854,7 +866,7 @@
       // Simulate blowing a random candle
       function blowRandomCandle() {
         const unblownCandles = Array.from(
-          document.querySelectorAll(".candle:not(.blown)")
+          document.querySelectorAll(".candle:not(.blown)"),
         );
         if (unblownCandles.length > 0) {
           const randomCandle =
@@ -939,6 +951,5 @@
         window.location.href = "letter.html";
       }
     </script>
-
-    </body>
+  </body>
 </html>
