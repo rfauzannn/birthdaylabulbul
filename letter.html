@@ -324,12 +324,12 @@
       }
 
       ::-webkit-scrollbar {
-      width: 6px;
+        width: 6px;
       }
 
       ::-webkit-scrollbar-thumb {
-          background: #ffb6c1;
-          border-radius: 10px;
+        background: #ffb6c1;
+        border-radius: 10px;
       }
       /* Animations */
       @keyframes fadeIn {
@@ -425,314 +425,238 @@
     />
   </head>
   <body>
-<div class="container">
-
-    <header>
+    <div class="container">
+      <header>
         <h1>For My Dearest Friend 🤍</h1>
-    </header>
+      </header>
 
-    <div class="letter-container">
+      <div class="letter-container">
         <div class="letter" id="typed-text"></div>
-    </div>
+      </div>
 
-    <div class="video-container" id="video-message">
-        <iframe src="about:blank"
-                frameborder="0"
-                allowfullscreen>
-        </iframe>
-    </div>
+      <div class="video-container" id="video-message">
+        <iframe src="about:blank" frameborder="0" allowfullscreen> </iframe>
+      </div>
 
-    <!-- Surprise Button -->
-    <div class="surprise-button-container">
-
-        <button class="surprise-button"
-                id="surprise-button">
-
-            Click for another Surprise! 🎁
-
+      <!-- Surprise Button -->
+      <div class="surprise-button-container">
+        <button class="surprise-button" id="surprise-button">
+          Click for another Surprise! 🎁
         </button>
+      </div>
 
-    </div>
-
-    <!-- Navigation -->
-    <div class="navigation">
-
-        <a href="javascript:history.back()"
-           class="back-button">
-
-            <i class="fas fa-arrow-left"></i>
-            Back to Birthday Cake
-
+      <!-- Navigation -->
+      <div class="navigation">
+        <a href="javascript:history.back()" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+          Back to Birthday Cake
         </a>
-
+      </div>
     </div>
 
-</div>
-
-
-<!-- MODAL -->
-<div class="modal-overlay" id="modal-overlay">
-
-    <div class="modal">
-
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal">
         <!-- Close -->
-        <button class="modal-close"
-                id="modal-close">
-
-            ×
-
-        </button>
+        <button class="modal-close" id="modal-close">×</button>
 
         <!-- Header -->
         <div class="modal-header">
-
-            <h2>
-                🎉 Your Special Surprise! 🎉
-            </h2>
-
+          <h2>🎉 Your Special Surprise! 🎉</h2>
         </div>
 
         <!-- Body -->
         <div class="modal-body">
+          <!-- Audio Player -->
+          <audio id="music-player"></audio>
 
-            <!-- Audio Player -->
-            <audio id="music-player"></audio>
+          <!-- Playlist -->
+          <div class="playlist">
+            <h3 style="margin-bottom: 15px">Your Favorite Songs</h3>
 
-            <!-- Playlist -->
-            <div class="playlist">
+            <!-- SONG 1 -->
+            <div class="playlist-item">
+              <img src="3.jpg" alt="Song cover" />
 
-                <h3 style="margin-bottom:15px">
-                    Your Favorite Songs
-                </h3>
+              <div class="playlist-item-info">
+                <div class="playlist-item-title">Nadin Amizah</div>
 
-                <!-- SONG 1 -->
-                <div class="playlist-item">
+                <div class="playlist-item-artist">Semua Aku di Rayakan</div>
+              </div>
 
-                    <img src="3.jpg"
-                         alt="Song cover" />
-
-                    <div class="playlist-item-info">
-
-                        <div class="playlist-item-title">
-                            Yellow
-                        </div>
-
-                        <div class="playlist-item-artist">
-                            Coldplay
-                        </div>
-
-                    </div>
-
-                    <button class="playlist-item-play"
-                            data-audio="yellow.mp3">
-
-                        <i class="fas fa-play"></i>
-
-                    </button>
-
-                </div>
-
-                <!-- SONG 2 -->
-                <div class="playlist-item">
-
-                    <img src="1.jpg"
-                         alt="Song cover" />
-
-                    <div class="playlist-item-info">
-
-                        <div class="playlist-item-title">
-                            Locked Heaven
-                        </div>
-
-                        <div class="playlist-item-artist">
-                            Bruno Mars
-                        </div>
-
-                    </div>
-
-                    <button class="playlist-item-play"
-                            data-audio="bruno.mp3">
-
-                        <i class="fas fa-play"></i>
-
-                    </button>
-
-                </div>
-
-                <!-- SONG 3 -->
-                <div class="playlist-item">
-
-                    <img src="6.jpg"
-                         alt="Song cover" />
-
-                    <div class="playlist-item-info">
-
-                        <div class="playlist-item-title">
-                            Happier Than Ever
-                        </div>
-
-                        <div class="playlist-item-artist">
-                            Billie Eilish
-                        </div>
-
-                    </div>
-
-                    <button class="playlist-item-play"
-                            data-audio="billie.mp3">
-
-                        <i class="fas fa-play"></i>
-
-                    </button>
-
-                </div>
-
-                <!-- SONG 4 -->
-                <div class="playlist-item">
-
-                    <img src="2.jpg"
-                         alt="Song cover" />
-
-                    <div class="playlist-item-info">
-
-                        <div class="playlist-item-title">
-                            Payphone
-                        </div>
-
-                        <div class="playlist-item-artist">
-                            Maroon 5
-                        </div>
-
-                    </div>
-
-                    <button class="playlist-item-play"
-                            data-audio="maroon.mp3">
-
-                        <i class="fas fa-play"></i>
-
-                    </button>
-
-                </div>
-
-                <!-- SONG 5 -->
-                <div class="playlist-item">
-
-                    <img src="5.jpg"
-                         alt="Song cover" />
-
-                    <div class="playlist-item-info">
-
-                        <div class="playlist-item-title">
-                            Beauty and a Beat
-                        </div>
-
-                        <div class="playlist-item-artist">
-                            Justin Bieber
-                        </div>
-
-                    </div>
-
-                    <button class="playlist-item-play"
-                            data-audio="jb.mp3">
-
-                        <i class="fas fa-play"></i>
-
-                    </button>
-
-                </div>
-
+              <button class="playlist-item-play" data-audio="nadin1.mp3">
+                <i class="fas fa-play"></i>
+              </button>
             </div>
 
-         <!-- Claim Button -->
-<div style="margin-top:20px">
+            <!-- SONG 2 -->
+            <div class="playlist-item">
+              <img src="1.jpg" alt="Song cover" />
 
-    <button id="openGiftPopup"
-            class="back-button"
+              <div class="playlist-item-info">
+                <div class="playlist-item-title">Best Part</div>
+
+                <div class="playlist-item-artist">Daniel Caesar</div>
+              </div>
+
+              <button class="playlist-item-play" data-audio="BestPart.mp3">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+
+            <!-- SONG 3 -->
+            <div class="playlist-item">
+              <img src="6.jpg" alt="Song cover" />
+
+              <div class="playlist-item-info">
+                <div class="playlist-item-title">bittersweet</div>
+
+                <div class="playlist-item-artist">Madison Beer</div>
+              </div>
+
+              <button class="playlist-item-play" data-audio="bittersweet.mp3">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+
+            <!-- SONG 4 -->
+            <div class="playlist-item">
+              <img src="2.jpg" alt="Song cover" />
+
+              <div class="playlist-item-info">
+                <div class="playlist-item-title">Ah</div>
+
+                <div class="playlist-item-artist">Nadin Amizah</div>
+              </div>
+
+              <button class="playlist-item-play" data-audio="ah.mp3">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+
+            <!-- SONG 5 -->
+            <div class="playlist-item">
+              <img src="5.jpg" alt="Song cover" />
+
+              <div class="playlist-item-info">
+                <div class="playlist-item-title">Amin Paling Serius</div>
+
+                <div class="playlist-item-artist">Nadin Amizah</div>
+              </div>
+
+              <button class="playlist-item-play" data-audio="aps.mp3">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Claim Button -->
+          <div style="margin-top: 20px">
+            <button
+              id="openGiftPopup"
+              class="back-button"
+              style="background: #ffb6c1; border-color: #ffb6c1; color: white"
+            >
+              Kalau ada kesan pesan buat aku boleh klik disini yaaa 🎀
+            </button>
+          </div>
+
+          <!-- POPUP -->
+          <div
+            id="giftPopup"
             style="
-            background:#ffb6c1;
-            border-color:#ffb6c1;
-            color:white;">
-
-        Ada pesan kesan buat aku? boleh klik disini ya🎀
-
-    </button>
-
-</div>
-
-
-<!-- POPUP -->
-<div id="giftPopup"
-     style="
-     display:none;
-     position:fixed;
-     top:0;
-     left:0;
-     width:100%;
-     height:100%;
-     background:rgba(0,0,0,0.6);
-     z-index:9999;
-     justify-content:center;
-     align-items:center;">
-
-    <div style="
-     background:white;
-     width:90%;
-     max-width:400px;
-     max-height:85vh;
-     overflow-y:auto;
-     padding:25px;
-     border-radius:20px;
-     text-align:center;
-     position:relative;">
-
-        <!-- Close -->
-        <button id="closeGiftPopup"
+              display: none;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.6);
+              z-index: 9999;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <div
+              style="
+                background: white;
+                width: 90%;
+                max-width: 400px;
+                max-height: 85vh;
+                overflow-y: auto;
+                padding: 25px;
+                border-radius: 20px;
+                text-align: center;
+                position: relative;
+              "
+            >
+              <!-- Close -->
+              <button
+                id="closeGiftPopup"
                 style="
-                position:absolute;
-                top:10px;
-                right:15px;
-                border:none;
-                background:none;
-                font-size:24px;
-                cursor:pointer;">
+                  position: absolute;
+                  top: 10px;
+                  right: 15px;
+                  border: none;
+                  background: none;
+                  font-size: 24px;
+                  cursor: pointer;
+                "
+              >
+                ×
+              </button>
 
-            ×
-
-        </button>
-
-          <textarea id="gift-message"
-                    placeholder="Tulis pesan dan kesan kamu di sini ✨"
-                    style="
-                    width:100%;
-                    min-height:100px;
-                    padding:12px;
-                    border-radius:12px;
-                    border:1px solid #ddd;
-                    resize:none;
-                    margin-bottom:15px;"></textarea>      
-                <p style="
-                    font-size:14px;
-                    color:#888;
-                    margin-bottom:10px;">
-                      Aku bakal simpen semua kesan yang kamu ini, dan aku bakal inget terus kesan pesan ini. Jadi, tulis aja apa pun yang kamu rasain, aku bakal seneng banget bacanya!
-                </p>
-        <button id="claimGiftBtn"
+              <input
+                type="text"
+                id="gift-name"
+                placeholder="isi nama lengkap kamu disinii 📝"
                 style="
-                width:100%;
-                padding:12px;
-                border:none;
-                border-radius:12px;
-                background:#ffb6c1;
-                color:white;
-                font-size:16px;
-                cursor:pointer;">
+                  width: 100%;
+                  padding: 12px;
+                  border-radius: 12px;
+                  border: 1px solid #ddd;
+                  margin-bottom: 12px;
+                "
+              />
+              <textarea
+                id="gift-message"
+                placeholder="Tulis pesan dan kesan kamu di sini ✨"
+                style="
+                  width: 100%;
+                  min-height: 100px;
+                  padding: 12px;
+                  border-radius: 12px;
+                  border: 1px solid #ddd;
+                  resize: none;
+                  margin-bottom: 15px;
+                "
+              ></textarea>
+              <p style="font-size: 14px; color: #888; margin-bottom: 10px">
+                Aku bakal simpen semua kesan yang kamu ini, dan aku bakal inget
+                terus kesan pesan ini. Jadi, tulis aja apa pun yang kamu rasain,
+                aku bakal seneng banget bacanya!
+              </p>
+              <button
+                id="claimGiftBtn"
+                style="
+                  width: 100%;
+                  padding: 12px;
+                  border: none;
+                  border-radius: 12px;
+                  background: #ffb6c1;
+                  color: white;
+                  font-size: 16px;
+                  cursor: pointer;
+                "
+              >
                 Send
-        </button>
-
-    </div>
-</div>
+              </button>
+            </div>
+          </div>
         </div>
-</div>
-</div>    <!-- Audio Elements -->
+      </div>
+    </div>
+    <!-- Audio Elements -->
     <audio id="click-sound" preload="auto">
       <source
         src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_bb630cc098.mp3?filename=cute-notification-ringtone-1-173850.mp3"
@@ -750,96 +674,61 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.5.1/confetti.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-    <script>  
-        emailjs.init("8EYawl7wmvD7OLMek");
+    <script>
+      emailjs.init("8EYawl7wmvD7OLMek");
 
-        document
-        .getElementById("claimGiftBtn")
-        .addEventListener("click", () => {
+      document.getElementById("claimGiftBtn").addEventListener("click", () => {
+        const name = document.getElementById("gift-name").value;
 
-            const name =
-                document.getElementById("gift-name").value;
+        const message = document.getElementById("gift-message").value;
 
-            const address =
-                document.getElementById("gift-address").value;
+        if (!name || !message) {
+          alert("Please complete the form first 💌");
 
-            const message =
-              document.getElementById("gift-message").value;
+          return;
+        }
 
-            if (!name || !address || !message) {
+        const templateParams = {
+          from_name: name,
+          message: message,
+        };
 
-                alert("Please complete the form first 💌");
+        emailjs
+          .send("service_y3xyc48", "template_yivosdm", templateParams)
+          .then(() => {
+            alert("Kesan dan pesan kamu udah aku terima 💖");
 
-                return;
-            }
+            document.getElementById("gift-name").value = "";
+            document.getElementById("gift-message").value = "";
+          })
+          .catch((error) => {
+            console.log(error);
 
-            const templateParams = {
-
-                from_name: name,
-
-                address: address,
-
-                message: message,
-
-            };
-
-            emailjs.send(
-                "service_y3xyc48",
-                "template_yivosdm",
-                templateParams
-            )
-            .then(() => {
-
-                alert("Kesan dan pesan kamu udah aku terima 💖");
-
-                document.getElementById("gift-name").value = "";
-                document.getElementById("gift-address").value = "";
-                document.getElementById("gift-message").value = "";
-            })
-            .catch((error) => {
-
-                console.log(error);
-
-                alert("Failed to send 💔");
-
-            });
-
-        });
+            alert("Failed to send 💔");
+          });
+      });
 
       const popup = document.getElementById("giftPopup");
 
-      const openBtn =
-          document.getElementById("openGiftPopup");
+      const openBtn = document.getElementById("openGiftPopup");
 
-      const closeBtn =
-          document.getElementById("closeGiftPopup");
-
+      const closeBtn = document.getElementById("closeGiftPopup");
 
       // buka popup
       openBtn.addEventListener("click", () => {
-
-          popup.style.display = "flex";
-
+        popup.style.display = "flex";
       });
-
 
       // tutup popup
       closeBtn.addEventListener("click", () => {
-
-          popup.style.display = "none";
-
+        popup.style.display = "none";
       });
-
 
       // klik area gelap untuk close
       popup.addEventListener("click", (e) => {
-
-          if (e.target === popup) {
-
-              popup.style.display = "none";
-
-          }
-
+        if (e.target === popup) {
+          popup.style.display = "none";
+        }
       });
 
       document.addEventListener("DOMContentLoaded", function () {
@@ -847,8 +736,8 @@
         setTimeout(() => {
           document.querySelector(".container").style.opacity = 1;
         }, 500);
-       
-    const letterContent = `
+
+        const letterContent = `
     To my dearest best friend,<br><br>
     Having a friend like you is one of the little things in life that I'm truly grateful for. From our random conversations to all the games we've played together, every moment we've shared has become a precious memory worth keeping. It's wonderful to know that someone can make life feel a little brighter just by being there, and I'm genuinely glad that we got to know each other.<br><br>
     Thank you for being someone I can talk to about anything, someone who can make me laugh when I'm feeling down, and someone who makes ordinary days feel more enjoyable. I'm truly lucky to have met you, and I hope you know how much I appreciate having you in my life.<br><br>
@@ -857,25 +746,24 @@
     zan ♡
     `;
 
-    new Typed("#typed-text", {
-      strings: [letterContent],
-      typeSpeed: 30,
-      showCursor: true,
-      cursorChar: "|",
-      contentType: "html",
-      onComplete: function () {
-        setTimeout(() => {
-          document
-            .querySelector(".surprise-button")
-            .classList.add(
-              "animate__animated",
-              "animate__pulse",
-              "animate__infinite",
-            );
-        }, 1000);
-      },
-    });
-
+        new Typed("#typed-text", {
+          strings: [letterContent],
+          typeSpeed: 30,
+          showCursor: true,
+          cursorChar: "|",
+          contentType: "html",
+          onComplete: function () {
+            setTimeout(() => {
+              document
+                .querySelector(".surprise-button")
+                .classList.add(
+                  "animate__animated",
+                  "animate__pulse",
+                  "animate__infinite",
+                );
+            }, 1000);
+          },
+        });
 
         const player = document.getElementById("music-player");
 
@@ -883,54 +771,40 @@
 
         let currentButton = null;
 
-        buttons.forEach(button => {
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const song = button.dataset.audio;
 
-            button.addEventListener("click", () => {
+            // kalau klik lagu yang sama → pause
+            if (currentButton === button && !player.paused) {
+              player.pause();
 
-                const song = button.dataset.audio;
+              button.innerHTML = '<i class="fas fa-play"></i>';
 
-                // kalau klik lagu yang sama → pause
-                if (
-                    currentButton === button &&
-                    !player.paused
-                ) {
+              return;
+            }
 
-                    player.pause();
-
-                    button.innerHTML =
-                        '<i class="fas fa-play"></i>';
-
-                    return;
-                }
-
-                // reset semua icon
-                buttons.forEach(btn => {
-                    btn.innerHTML =
-                        '<i class="fas fa-play"></i>';
-                });
-
-                // play lagu baru
-                player.src = song;
-
-                player.play();
-
-                button.innerHTML =
-                    '<i class="fas fa-pause"></i>';
-
-                currentButton = button;
+            // reset semua icon
+            buttons.forEach((btn) => {
+              btn.innerHTML = '<i class="fas fa-play"></i>';
             });
 
+            // play lagu baru
+            player.src = song;
+
+            player.play();
+
+            button.innerHTML = '<i class="fas fa-pause"></i>';
+
+            currentButton = button;
+          });
         });
 
         // saat lagu selesai
         player.addEventListener("ended", () => {
-
-            if (currentButton) {
-
-                currentButton.innerHTML =
-                    '<i class="fas fa-play"></i>';
-            }
-
+          if (currentButton) {
+            currentButton.innerHTML = '<i class="fas fa-play"></i>';
+          }
         });
 
         // Create floating elements

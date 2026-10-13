@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -510,9 +510,10 @@
         font-display: swap;
         src: url("chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/AtlassianSans-latin.woff2")
           format("woff2");
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
-          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
       }
     </style>
   </head>
@@ -2115,11 +2116,14 @@
         "
         bis_skin_checked="1"
       >
-        <h1>Our Memory Lane</h1>
+        <h1>A Little Gallery of You ♡</h1>
         <p>
-          A journey through the most incredible moments we've shared together.
-          Hover over each photo to see why these memories mean so much to me!
-          ✨
+          A collection of your lovely smiles, cute poses, and little moments
+          that show just how special you are. Every picture captures a different
+          side of you, and honestly, it's hard not to smile when looking at
+          them. This little gallery is just a small way to celebrate you and the
+          wonderful person you are. Keep smiling, keep being yourself, and never
+          forget how much you mean to the people around you. ✨
         </p>
       </div>
 
@@ -2258,7 +2262,7 @@
               style="--rotate: 4deg"
               bis_skin_checked="1"
             ></div>
-          <img class="memory-img" src="4.jpg" alt="Memory 4" />
+            <img class="memory-img" src="4.jpg" alt="Memory 4" />
             <div class="card-sticker" bis_skin_checked="1">
               <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="50" cy="50" r="50" fill="#ff6ec4"></circle>
@@ -2417,8 +2421,8 @@
           </div>
 
           <audio id="birthday-song" loop>
-            <source src="birthday.mp3" type="audio/mp3">
-        </audio>
+            <source src="birthday.mp3" type="audio/mp3" />
+          </audio>
         </div>
       </div>
 
@@ -2446,57 +2450,44 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 
     <script>
-document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", () => {
+        const audio = document.getElementById("birthday-song");
 
-    const audio =
-        document.getElementById("birthday-song");
+        // cek status musik
+        const musicEnabled = localStorage.getItem("musicPlaying");
 
-    // cek status musik
-    const musicEnabled =
-        localStorage.getItem("musicPlaying");
-
-    // jika musik sebelumnya aktif
-    if (musicEnabled === "true") {
-
-        audio.play()
+        // jika musik sebelumnya aktif
+        if (musicEnabled === "true") {
+          audio
+            .play()
             .then(() => {
-                console.log("music resumed");
+              console.log("music resumed");
             })
             .catch(() => {
+              // browser block autoplay
+              // tunggu klik kecil user
 
-                // browser block autoplay
-                // tunggu klik kecil user
+              const resume = () => {
+                audio.play();
 
-                const resume = () => {
+                document.removeEventListener("click", resume);
+              };
 
-                    audio.play();
-
-                    document.removeEventListener(
-                        "click",
-                        resume
-                    );
-                };
-
-                document.addEventListener(
-                    "click",
-                    resume
-                );
+              document.addEventListener("click", resume);
             });
-    }
+        }
 
-    // simpan status saat user pertama klik halaman
-    document.addEventListener("click", () => {
+        // simpan status saat user pertama klik halaman
+        document.addEventListener(
+          "click",
+          () => {
+            localStorage.setItem("musicPlaying", "true");
 
-        localStorage.setItem(
-            "musicPlaying",
-            "true"
+            audio.play();
+          },
+          { once: true },
         );
-
-        audio.play();
-
-    }, { once: true });
-
-});
+      });
       // Register ScrollTrigger plugin
       gsap.registerPlugin(ScrollTrigger);
 
@@ -2554,7 +2545,7 @@ document.addEventListener("DOMContentLoaded", () => {
               }
             });
           },
-          { threshold: 0.3 }
+          { threshold: 0.3 },
         );
 
         // Observe all memory cards
@@ -2566,9 +2557,12 @@ document.addEventListener("DOMContentLoaded", () => {
           card.style.animationDelay = `${0.1 * index}s`;
 
           // Make all cards visible initially
-          setTimeout(() => {
-            card.classList.add("visible");
-          }, 500 + index * 150);
+          setTimeout(
+            () => {
+              card.classList.add("visible");
+            },
+            500 + index * 150,
+          );
         });
 
         // Fixed slideshow functionality
@@ -2583,7 +2577,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           slideshowInterval = setInterval(() => {
             // Move to next slide
-          currentSlide = (currentSlide + 1) % cards.length;
+            currentSlide = (currentSlide + 1) % cards.length;
             // Calculate the scroll position of the current slide
             const cards = galleryElement.querySelectorAll(".memory-card");
             if (cards && cards.length > 0 && cards[currentSlide]) {
