@@ -448,7 +448,7 @@
         <button class="surprise-button"
                 id="surprise-button">
 
-            Click for a Surprise! 🎁
+            Click for another Surprise! 🎁
 
         </button>
 
@@ -652,7 +652,7 @@
             border-color:#ffb6c1;
             color:white;">
 
-        Claim Your Gift 🎀
+        Ada pesan kesan buat aku? boleh klik disini ya🎀
 
     </button>
 
@@ -699,42 +699,8 @@
 
         </button>
 
-        <h2 style="margin-bottom:15px;">
-            🎁 Eitss.. isi alamat lengkap rumah kamu dulu ya 😄
-        </h2>
-
-        <input type="text"
-               id="gift-name"
-               placeholder="isi nama lengkap kamu disinii 📝"
-               style="
-               width:100%;
-               padding:12px;
-               border-radius:12px;
-               border:1px solid #ddd;
-               margin-bottom:12px;">
-
-        <textarea id="gift-address"
-                  placeholder="isi alamat kamu disinii 🏡"
-                  style="
-                  width:100%;
-                  min-height:120px;
-                  padding:12px;
-                  border-radius:12px;
-                  border:1px solid #ddd;
-                  resize:none;
-                  margin-bottom:10px;"></textarea>
-
-                  <p style="
-                    font-size:14px;
-                    color:#888;
-                    margin-bottom:10px;">
-
-                      Kalau gamau claim hadiah kosongin aja alamatnya dan
-                      boleh banget kalau kamu mau isi kesan buat aku jugaa 😄✨
-                  </p>
-
           <textarea id="gift-message"
-                    placeholder="Tulis kesan kamu di sini ✨"
+                    placeholder="Tulis pesan dan kesan kamu di sini ✨"
                     style="
                     width:100%;
                     min-height:100px;
@@ -747,7 +713,7 @@
                     font-size:14px;
                     color:#888;
                     margin-bottom:10px;">
-                      Aku bakal simpen semua kesan yang kamu ini, dan aku bakal inget terus semua kenangan indah yang udah kita lewatin bareng. Jadi, tulis aja apa pun yang kamu rasain, aku bakal seneng banget bacanya!
+                      Aku bakal simpen semua kesan yang kamu ini, dan aku bakal inget terus kesan pesan ini. Jadi, tulis aja apa pun yang kamu rasain, aku bakal seneng banget bacanya!
                 </p>
         <button id="claimGiftBtn"
                 style="
@@ -824,7 +790,7 @@
             )
             .then(() => {
 
-                alert("Gift claimed successfully 🎁");
+                alert("Kesan dan pesan kamu udah aku terima 💖");
 
                 document.getElementById("gift-name").value = "";
                 document.getElementById("gift-address").value = "";
@@ -881,28 +847,35 @@
         setTimeout(() => {
           document.querySelector(".container").style.opacity = 1;
         }, 500);
+       
+    const letterContent = `
+    To my dearest best friend,<br><br>
+    Having a friend like you is one of the little things in life that I'm truly grateful for. From our random conversations to all the games we've played together, every moment we've shared has become a precious memory worth keeping. It's wonderful to know that someone can make life feel a little brighter just by being there, and I'm genuinely glad that we got to know each other.<br><br>
+    Thank you for being someone I can talk to about anything, someone who can make me laugh when I'm feeling down, and someone who makes ordinary days feel more enjoyable. I'm truly lucky to have met you, and I hope you know how much I appreciate having you in my life.<br><br>
+    Happy Birthday, Labulbul! I hope this new chapter of your life is filled with happiness, good health, success, and countless reasons to smile. May you always be surrounded by people who genuinely care about you, and may life always treat you kindly. Here's to more conversations, silly moments, endless gaming sessions, and beautiful memories we'll create together. Wherever life takes us, I hope we'll always be friends who can count on each other.<br><br>
+    With lots of love and gratitude,<br>
+    zan ♡
+    `;
 
-        // Typewriter effect for letter
-        const letterContent =
-          "My dearest friend,\n\nAs I sit here thinking about all the memories we’ve shared, I can’t help but smile. From our late-night conversations to playing games together even from afar, you have filled my life with so much joy and laughter. You have become the person I turn to when I’m sad, the one I share my stories with, and my greatest mood booster.\n\nOn your special day, I want you to know how grateful I am to have you in my life. You make every day brighter just by being yourself — kind, funny, and incredibly caring.\n\nHappy Birthday to my favorite person in the world! I hope our friendship, laughter, and beautiful memories together continue for many more years to come.\n\nWith all my love,\nzan";
+    new Typed("#typed-text", {
+      strings: [letterContent],
+      typeSpeed: 30,
+      showCursor: true,
+      cursorChar: "|",
+      contentType: "html",
+      onComplete: function () {
+        setTimeout(() => {
+          document
+            .querySelector(".surprise-button")
+            .classList.add(
+              "animate__animated",
+              "animate__pulse",
+              "animate__infinite",
+            );
+        }, 1000);
+      },
+    });
 
-        new Typed("#typed-text", {
-          strings: [letterContent],
-          typeSpeed: 30,
-          showCursor: true,
-          cursorChar: "|",
-          onComplete: function () {
-            setTimeout(() => {
-              document
-                .querySelector(".surprise-button")
-                .classList.add(
-                  "animate__animated",
-                  "animate__pulse",
-                  "animate__infinite",
-                );
-            }, 1000);
-          },
-        });
 
         const player = document.getElementById("music-player");
 
